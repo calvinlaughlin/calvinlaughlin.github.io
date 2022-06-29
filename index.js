@@ -1,3 +1,5 @@
+// Version 1.0
+
 window.addEventListener('load', function () {
 let contentLoaded = false
 
