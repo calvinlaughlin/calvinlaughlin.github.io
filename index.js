@@ -93,6 +93,29 @@ c.fillRect(0, 0, canvas.width, canvas.height)
     const nine = new Image()
     nine.src = './numbers/number9.png'
 
+    var nums = new Array()
+
+    const Zero = new Number(0, zero)
+    nums.push(Zero)
+    const One = new Number(1, one)
+    nums.push(One)
+    const Two = new Number(2, two)
+    nums.push(Two)
+    const Three = new Number(3, three)
+    nums.push(Three)
+    const Four = new Number(4, four)
+    nums.push(Four)
+    const Five = new Number(5, five)
+    nums.push(Five)
+    const Six = new Number(6, six)
+    nums.push(Six)
+    const Seven = new Number(7, seven)
+    nums.push(Seven)
+    const Eight = new Number(8, eight)
+    nums.push(Eight)
+    const Nine = new Number(9, nine)
+    nums.push(Nine)
+
     console.log('images loaded')
     contentLoaded = true
 
@@ -144,29 +167,6 @@ c.fillRect(0, 0, canvas.width, canvas.height)
             c.drawImage(this.image, x, y)
         }
     }
-
-    var nums = new Array()
-
-    const Zero = new Number(0, zero)
-    nums.push(Zero)
-    const One = new Number(1, one)
-    nums.push(One)
-    const Two = new Number(2, two)
-    nums.push(Two)
-    const Three = new Number(3, three)
-    nums.push(Three)
-    const Four = new Number(4, four)
-    nums.push(Four)
-    const Five = new Number(5, five)
-    nums.push(Five)
-    const Six = new Number(6, six)
-    nums.push(Six)
-    const Seven = new Number(7, seven)
-    nums.push(Seven)
-    const Eight = new Number(8, eight)
-    nums.push(Eight)
-    const Nine = new Number(9, nine)
-    nums.push(Nine)
 
     class Sprite {
         constructor({ position, velocity, image, frames, trainArrived }) {
