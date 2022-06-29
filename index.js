@@ -91,6 +91,8 @@ window.addEventListener('load', function () {
     const nine = new Image()
     nine.src = './numbers/number9.png'
 
+    console.log('numbers loaded')
+
     const playerWidth = 81
 
     let time = 0
@@ -380,6 +382,7 @@ window.addEventListener('load', function () {
     let trainTime = getRandomInt(2000) + 1000
 
     function animate() {
+        console.log('animation begins')
         var startTime = performance.now()
 
         window.requestAnimationFrame(animate)
