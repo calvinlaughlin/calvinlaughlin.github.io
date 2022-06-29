@@ -1,3 +1,6 @@
+window.addEventListener('load', function () {
+let contentLoaded = false
+
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -7,7 +10,6 @@ canvas.height = 897
 c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
 
-window.addEventListener('load', function () {
     const image = new Image()
     image.src = './images/background4.jpg'
 
@@ -91,7 +93,8 @@ window.addEventListener('load', function () {
     const nine = new Image()
     nine.src = './numbers/number9.png'
 
-    console.log('numbers loaded')
+    console.log('images loaded')
+    contentLoaded = true
 
     const playerWidth = 81
 
@@ -382,7 +385,7 @@ window.addEventListener('load', function () {
     let trainTime = getRandomInt(2000) + 1000
 
     function animate() {
-        console.log('animation begins')
+        console.log('Animation begins')
         var startTime = performance.now()
 
         window.requestAnimationFrame(animate)
@@ -539,7 +542,7 @@ window.addEventListener('load', function () {
         fg.draw()
 
     }
-    animate()
+    if (contentLoaded) animate()
 
     let lastKey = ''
     window.addEventListener('keydown', (e) => {
