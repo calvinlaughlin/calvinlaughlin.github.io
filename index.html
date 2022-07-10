@@ -6,18 +6,59 @@
     p {
         color: #e385b4;
         font-family: monaco;
+        display: none;
+    }
+    #menu-outer {
+        text-align: center;
+        margin-right: 500px;
+    }
+    ul {
+        font-size: 30px;
+        display: inline;
+        position: absolute;
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+        background-color: #9556a7;
+    }
+    li {
+        float: left;
+        font-family: monaco;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover {
+        background-color: #e385b4;
     }
 </style>
 
 <title>Cal[vin]Train</title>
 <link rel="icon" href="./images/favicon.png">
 
+<div id="menu-outer" style="display: none;">
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="news.asp">Movies</a></li>
+        <li><a href="contact.asp">Maps</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+</div>
+
+
 <canvas></canvas>
 
 
 
-
-<p>
+<p style="color: #9556a7;" id="controls">
+    &ensp; 'a' or 'Left Arrow' to move left, 'd' or 'Right Arrow' to move right, 'Space' to interact 
+</p>
+<p id="credits">
     &ensp; Background art inspired by Chameleon Pixel Artist <br>
     &ensp; Player art inspired by Tiny Tower
 </p>

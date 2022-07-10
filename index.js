@@ -6,17 +6,39 @@ let contentLoaded = false
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
+var menu = this.document.getElementById('menu-outer')
+var controls = this.document.getElementById('controls')
+var credits = this.document.getElementById('credits')
+
 canvas.width = 1785
 canvas.height = 897
 
 c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
 
+const quips = ['Hungry.', 
+'Where is the train?',
+'Hello.',
+'Hello!',
+'Hm.',
+'Tired.',
+'Hi.',
+'Yo',
+'Beautiful day!',
+'Where am I?',
+'I should buy a ticket.',
+'Ticket?',
+'So much work.',
+'M-hm.']
+
     const image = new Image()
     image.src = './images/background4.jpg'
 
     const foreground = new Image()
     foreground.src = './images/foreground.png'
+
+    const tickets = new Image()
+    tickets.src = './images/tickets.png'
 
     const mainPlayerImageRight = new Image()
     mainPlayerImageRight.src = './images/main-character-right.png'
@@ -95,7 +117,6 @@ c.fillRect(0, 0, canvas.width, canvas.height)
     const nine = new Image()
     nine.src = './images/numbers/number9.png'
 
-    console.log('images loaded')
     contentLoaded = true
 
     const playerWidth = 81
@@ -299,6 +320,12 @@ c.fillRect(0, 0, canvas.width, canvas.height)
                 )
             }
 
+            // Give randome quip
+            if (getRandomInt(100) == 1) {
+                var quip = quips[getRandomInt(quips.length)]
+                console.log(quip)
+            }
+
 
             if (!this.moving) return
 
@@ -344,6 +371,15 @@ c.fillRect(0, 0, canvas.width, canvas.height)
         image: trainHead,
     })
 
+    const biggerTicket = new Sprite(
+        {position: {
+            x: 1525,
+            y: 690
+        },
+        image: tickets,
+        present: false
+    })
+
 
     const keys = {
         a: {
@@ -356,6 +392,9 @@ c.fillRect(0, 0, canvas.width, canvas.height)
             pressed: false
         },
         ArrowLeft: {
+            pressed: false
+        },
+        Space: {
             pressed: false
         }
     }
@@ -386,12 +425,26 @@ c.fillRect(0, 0, canvas.width, canvas.height)
     var npcs = new Array()
     let trainTime = getRandomInt(2000) + 1000
 
+    hover = false
+
     function animate() {
-        console.log('Animation begins')
+
+
         var startTime = performance.now()
 
         window.requestAnimationFrame(animate)
         background.draw()
+
+
+        if ((1450 < player.position.x) && (player.position.x < 1610)) {
+            biggerTicket.draw()
+            c.font = '20px monaco'
+            c.fillText('Menu', 1535, 675)
+            if (keys.Space.pressed) {
+                console.log('Pressed space at tickets!')
+                menu.style.display = 'block'
+            }
+        }
 
         trainClock(trainTime - time + 1000)
 
@@ -469,6 +522,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
             npcs.push(nonplayer)
         }
 
+
         npcs.forEach(function(nonplayer) {
             if ((nonplayer.randomDestination - nonplayer.position.x > 10) && !trainFront.trainArrived) {
                 nonplayer.direction = 'right'
@@ -487,6 +541,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
                 nonplayer.moving = false
                 nonplayer.arrived = true
             }
+
 
             nonplayer.drawAnimated()
 
@@ -546,6 +601,9 @@ c.fillRect(0, 0, canvas.width, canvas.height)
     }
     if (contentLoaded) animate()
 
+    controls.style.display = 'block'
+    credits.style.display = 'block'
+
     let lastKey = ''
     window.addEventListener('keydown', (e) => {
         switch (e.key) {
@@ -565,6 +623,10 @@ c.fillRect(0, 0, canvas.width, canvas.height)
                 keys.ArrowRight.pressed = true
                 lastKey = 'ArrowRight'
                 break
+            case ' ':
+                e.preventDefault()
+                keys.Space.pressed = true
+                break
         }
     })
 
@@ -582,7 +644,23 @@ c.fillRect(0, 0, canvas.width, canvas.height)
             case 'ArrowRight':
                 keys.ArrowRight.pressed = false
                 break
+            case ' ':
+                keys.Space.pressed = false
+                break
         }
     })
+
+    // window.addEventListener('mousemove', (e) => {
+    //     let mousex = e.clientX
+    //     let mousey = e.clientY
+    //     console.log('X: ' + mousex + ' Y: ' + mousey)
+    //     if (((1533 < mousex) && (mousex < 1590)) && 
+    //     ((705 < mousey) && (mousey < 815))) {
+    //         hover = true
+    //     }
+    //     else {
+    //         hover = false
+    //     }
+    // })
 
 })
