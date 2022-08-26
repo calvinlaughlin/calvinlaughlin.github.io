@@ -1,7 +1,7 @@
 <style>
 #menu-outer {
-    text-align: center;
-    margin-right: 500px;
+    text-align: left;
+    margin-right: 300px;
 }
 ul {
     font-size: 30px;
@@ -27,6 +27,16 @@ li a {
 li a:hover {
     background-color: grey;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+}
+body {
+    width: 1106;
+    margin: auto;
+}
 </style>
 
 <title>Cal[vin]Train</title>
@@ -34,24 +44,89 @@ li a:hover {
 
 <div id="menu-outer">
     <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">Movies</a></li>
-        <li><a href="./about.html">Maps</a></li>
-        <li><a href="./about.html">About</a></li>
+        <li><a href="./index.html">CalTrain</a></li>
       </ul>
 </div>
 
-<body>
-    <h1 style="text-align: center;"> <br> <br> What is this website?</h1>
-    <p style="text-align: left;">Welcome to my website. If you have made it to this page, that means you figured out the controls 
-    and were curious enough to wander over to the ticket machine. Congratulations! Now you're probably wondering what the point of this website is.
-    Well, my name is Calvin Laughlin, and I am a junior at Stanford University. I created this website to learn web development over the summer of 2022.
-    I chose the Caltrain design for a couple reasons: <br>
-    One, I love the Caltrain. I don't think I've ever paid the fare but it's gotten me to San Francisco and back many times. <br>
-    Two, in the spring of 2022 I took a class called CS111: Operating Systems taught by John Osterhout. In the class, we implemented a synchronization problem. In the problem, each thread
-    was represented by a passenger, and each train could only carry a limited number of threads. So, using a FIFO system we used locks and condition variables in C++ to manage the threads
-    and ensure that nobody got on the train before it was their turn to do so. It beautifully illustrated synchronization and inspired me to make this website as a visualization to that problem.
-    <br> Other than that, this website will be used to showcase things I find interesting, whether it be movies or places around LA that I like. The whole point of the website is to learn! So please, enjoy,
-    and if anything breaks horribly or you want to pick a fight with me, email me at <br>
-    calvin3@stanford.edu   </p>
+<body style="background-color: #FAF9F6;">
+    <div>
+        <h1 style="text-align: center;"> <br> <br> what is this website?</h1>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-child">
+            <img src="./images/what.jpg" alt="">
+        </div>
+
+        <div class="grid-child">
+            <h1> <br> calvin laughlin</h1>
+            <h3>computer science, stanford university, twenty-twenty-four</h3>
+            <h4> <a href="https://www.linkedin.com/in/calvinlaughlin3/">linkedin</a> &ensp; <a href="https://github.com/calvinlaughlin">github</a> &ensp; <a href="https://twitter.com/laughlincalvin">twitter</a></h5>
+        </div>
+        
+    </div>
+        <img src="./images/locomotive2.png" height="32px" width="218px">
+        <img src="./images/locomotive2.png" height="32px" width="218px">
+        <img src="./images/locomotive2.png" height="32px" width="218px">
+        <img src="./images/locomotive2.png" height="32px" width="218px">
+        <img src="./images/locomotive2.png" height="32px" width="218px">
+    <div>
+
+    </div>
+
+    <div class="grid-container" style="grid-template-columns: 4fr 1fr;">
+        <div class="grid-child">
+            <h1>about</h1>
+            <p style="text-align: left;">Welcome to my website. If you have made it to this page, that means you figured out the controls 
+                and were curious enough to wander over to the ticket machine. Congratulations! Now you're probably wondering what the point of this website is. <br>
+                Well, my name is Calvin Laughlin, and I am a junior at Stanford University. I created this website from scratch, and it was originally going to be just about me,
+                but I chose to model it after the Caltrain for a few reasons: <br>
+            </p>
+            <p> <strong>One,</strong> I love the Caltrain. I don't think I've ever paid the fare but it's gotten me to San Francisco and back many times. <br>
+                <strong>Two,</strong> in the spring of 2022 I took a class called <strong>CS111: Operating Systems</strong> taught by John Osterhout. In the class, we implemented a synchronization problem. In the problem, each thread
+                was represented by a passenger, and each train could only carry a limited number of threads. So, using a FIFO system we used locks and condition variables in C++ to manage the threads
+                and ensure that nobody got on the train before it was their turn to do so. It beautifully illustrated synchronization and inspired me to make this website as a visualization to that problem.
+            </p>
+        </div>
+        <div class="grid-child">
+            <div>
+                <h1 style="text-align: center;">info</h1>
+            <p style="text-align: center;">calvin3@stanford.edu</p>
+            <p style="text-align: center;">(310) 871-2726</p>
+            <p style="text-align: center;">palo alto, ca</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container" style="grid-template-columns: 1fr 4fr;">
+        <div class="grid-child">
+            <p> <br> <br> </p>
+            <img src="./images/run.gif" alt="">
+        </div>
+
+        <div class="grid-child">
+            <h1>projects</h1>
+            <h3>heap allocator</h3>
+            <p>Over the summer, as part of Stanford’s CS107 “Computer Systems” class, 
+                I implemented both an implicit and explicit heap allocator. The implicit allocator 
+                used a first fit method that favored speed over efficiency, while the explicit allocator 
+                was organized using address order to traverse the explicit linked list. This project gave 
+                me a very solid understanding of how computer systems work as well as programming experience.
+            </p>
+            <h3>sator square</h3>
+            <p>As a final project for Stanford’s CS106B “Programming Abstractions” class, I created from scratch
+                 a program that, via recursive backtracking, finds combinations of words in the English dictionary
+                  that when put in a grid, can be read forwards, backwards, up, and down. This phenomenon of a “perfect square”
+                   with words is called a Sator Square. If you’d like to read more, you can read my writeup of the project here.
+            </p>
+            <h3>naive bayes / linear regression</h3>
+            <p>As part of Stanford's CS109 "Probability for Computer Scientists", the final project entailed creating, from scratch, classification models 
+                under both the naive bayes assumption, and the more rigorous linear regression model. This project was my first foray into
+                machine learning, but it has inspired further interest in the form of a python classification model that I am working on to project
+                what specials will be present at each Stanford dining hall.
+            </p>
+        </div>
+    
+    </div>
+    <p>(c) calvin laughlin 2022 all rights reserved (all of them).</p>
 </body> 

@@ -439,10 +439,11 @@ const quips = ['Hungry.',
         if ((1450 < player.position.x) && (player.position.x < 1610)) {
             biggerTicket.draw()
             c.font = '20px monaco'
-            c.fillText('Menu', 1535, 675)
+            c.fillText('About', 1535, 675)
             if (keys.Space.pressed) {
                 console.log('Pressed space at tickets!')
-                menu.style.display = 'block'
+                // menu.style.display = 'block'
+                window.location.href = "./about.html"
             }
         }
 
